@@ -1,6 +1,7 @@
 
 const {crearArchivo} = require('./datos');
 
+//Información de cursos
 let cursos = [{
     idCurso: 1,
     nombre: 'Programación aplicada',
@@ -20,6 +21,7 @@ let cursos = [{
     precio: 250000
 }];
 
+//Listar cursos
 let estudio = (cursos, callback) => {
     let opciones=[];
     for (let i = 0; i < cursos.length; i++) {
@@ -30,7 +32,7 @@ let estudio = (cursos, callback) => {
     }    
 }
 
-
+//Yargs
 const informacion = {
     id: {
         demand: true,
@@ -48,6 +50,7 @@ const informacion = {
 
 const argv = require('yargs').command('inscribir','Inscribirse a un curso', informacion).argv;
 
+//Aleta de ID no existente
 const alerta = (i) => {
     if (i == 0){
         console.log('Usted ha ingresado un ID que no corresponde a ningún curso ofrecido. Por favor verifique su elección.')
@@ -55,6 +58,7 @@ const alerta = (i) => {
     }
 }
 
+//Proceso de inscripción
 if (argv._[0] == 'inscribir') {
     for (let i = 0; i < cursos.length; i++) {
         module.exports = {
